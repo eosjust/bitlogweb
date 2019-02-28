@@ -89,7 +89,6 @@
     background-color: #d3dce6;
     padding: 5px;
     margin: 5px;
-    cursor: pointer;
     box-shadow: 2px 0.5px 10px #b6b6b6;
   }
   .chat-item-other {
@@ -99,7 +98,6 @@
     background-color: whitesmoke;
     padding: 5px;
     margin: 5px;
-    cursor: pointer;
     box-shadow: 2px 0.5px 10px #b6b6b6;
   }
 </style>

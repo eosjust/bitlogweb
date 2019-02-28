@@ -23,7 +23,6 @@
           <div style="width: 100%;height: 1px;background-color: #DCDFE6;"></div>
           <el-row type="flex" class="chatinput">
             <el-input
-              placeholder="请输入内容"
               style="margin-right: 30px;"
               v-model="inputMsg">
             </el-input>
@@ -87,14 +86,14 @@
       },
       buildChatItems(rows){
         var that=this;
-        // that.chatItems.splice(0, that.chatItems.length);
-        // for(var i=0;i<rows.length;i++){
-        //
-        // }
-        // for (let item of rows) {
-        //   that.chatItems.push(item);
-        // }
-        that.chatItems=rows;
+        that.chatItems.splice(0, that.chatItems.length);
+        for(var i=0;i<rows.length;i++){
+
+        }
+        for (let item of rows) {
+          that.chatItems.push(item);
+        }
+        // that.chatItems=rows;
       },
       actionPostMsg() {
         var that = this;

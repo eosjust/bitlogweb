@@ -153,7 +153,7 @@
         },
         scatterMainNetwork: {
           blockchain: 'eos',
-          host: 'proxy.eosnode.tools',
+          host: 'mainnet.meet.one',
           hostTable: 'api.eoslaomao.com',
           port: 443,
           protocol: 'https',

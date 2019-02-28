@@ -21,7 +21,7 @@
                 v-model="inputMsg"
                 clearable>
               </el-input>
-              <el-button type="primary">发送</el-button>
+              <el-button type="primary" @click="actionPostMsg">发送</el-button>
             </el-row>
           </el-row>
 
@@ -36,8 +36,49 @@
       data() {
         return {
           inputMsg:"",
-
         }
+      },
+      created() {
+      },
+      destroyed() {
+      },
+      mounted() {
+      },
+      methods: {
+        actionPostMsg() {
+          var that = this;
+          var eossdkutil = window.eossdkutil;
+          eossdkutil.pushEosAction({
+            actions: [
+              {
+                account: "bitlogsample",
+                name: "postmsg",
+                authorization: [
+                  {
+                    actor: that.$store.state.eosUserName,
+                    permission: "active"
+                  }
+                ],
+                data: {
+                  user: that.$store.state.eosUserName,
+                  type:0,
+                  msg:that.inputMsg,
+                }
+              }
+            ]
+          }).then(function (result) {
+            that.$message({
+              message: '发送成功',
+              type: 'success'
+            });
+          }).catch(function (error) {
+            that.$message({
+              message: error,
+              type: 'warning'
+            });
+          });
+        },
+
       },
     }
 </script>

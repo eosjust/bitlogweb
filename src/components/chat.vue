@@ -27,6 +27,11 @@
               v-model="inputMsg">
             </el-input>
             <el-button type="primary" @click="actionPostMsg">发送</el-button>
+
+
+          </el-row>
+          <el-row>
+            <a href="youku://play?showid=efbfbdefbfbd73096222&source=dandelion_uctext&refer=pgy_bd.wenji.zwj_00003105_000000_iq2aye_19032900">链接链接链接链接链接链接链接链接</a>
           </el-row>
         </el-row>
 

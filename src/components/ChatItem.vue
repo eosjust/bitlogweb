@@ -76,6 +76,40 @@
 
       onItemClick(data){
         console.log(data);
+        this.actionDelMsg(data.id);
+      },
+
+      actionDelMsg(chatid) {
+        var that = this;
+        var eossdkutil = window.eossdkutil;
+        eossdkutil.pushEosAction({
+          actions: [
+            {
+              account: that.chatContract,
+              name: "delmsg",
+              authorization: [
+                {
+                  actor: that.$store.state.eosUserName,
+                  permission: "active"
+                }
+              ],
+              data: {
+                user: that.$store.state.eosUserName,
+                id: chatid,
+              }
+            }
+          ]
+        }).then(function (result) {
+          that.$message({
+            message: "撤回成功",
+            type: 'success'
+          });
+        }).catch(function (error) {
+          that.$message({
+            message: error,
+            type: 'warning'
+          });
+        });
       },
     },
   }
@@ -89,6 +123,7 @@
     background-color: #d3dce6;
     padding: 5px;
     margin: 5px;
+    cursor: pointer;
     box-shadow: 2px 0.5px 10px #b6b6b6;
   }
   .chat-item-other {
@@ -98,6 +133,7 @@
     background-color: whitesmoke;
     padding: 5px;
     margin: 5px;
+    cursor: pointer;
     box-shadow: 2px 0.5px 10px #b6b6b6;
   }
 </style>
